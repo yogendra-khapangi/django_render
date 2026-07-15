@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['django-render-9hon.onrender.com','*']
 
+CSRF_TRUSTED_ORIGINS = ['*']
+
+
 
 # Application definition
 
