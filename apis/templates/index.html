@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Mobile - Next-Gen Smartphones</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for interactive elements (Mobile Menu & Tab switching) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased overflow-x-hidden" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-transparent">AURA</span>
+                <span class="text-xs uppercase tracking-widest bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-semibold">Labs</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#products" class="hover:text-white transition-colors">Devices</a>
+                <a href="#specs" class="hover:text-white transition-colors">Specs</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#products" class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-indigo-500/20 transition-all transform hover:-translate-y-0.5">
+                    Pre-Order Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenuOpen" style="display: none;"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden bg-slate-950 border-b border-slate-900 px-4 py-6 space-y-4" style="display: none;">
+            <a @click="mobileMenuOpen = false" href="#home" class="block text-slate-300 hover:text-white font-medium">Home</a>
+            <a @click="mobileMenuOpen = false" href="#features" class="block text-slate-300 hover:text-white font-medium">Features</a>
+            <a @click="mobileMenuOpen = false" href="#products" class="block text-slate-300 hover:text-white font-medium">Devices</a>
+            <a @click="mobileMenuOpen = false" href="#specs" class="block text-slate-300 hover:text-white font-medium">Specs</a>
+            <a @click="mobileMenuOpen = false" href="#products" class="block w-full text-center bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-xl transition-all">Pre-Order Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Radial Gradient Background -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20">
+                        <i class="fa-solid fa-sparkles mr-1.5"></i> Aura Phone 3 Pro — Now Available
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-white">
+                        Beyond the <br>
+                        <span class="bg-gradient-to-r from-violet-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">Speed of Thought</span>
+                    </h1>
+                    <p class="text-slate-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Meet the first smartphone designed entirely around custom neural architectures. Powered by the hyper-efficient Quantum-9 chip, featuring a true bezel-free liquid display.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#products" class="bg-white hover:bg-slate-100 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 text-center">
+                            Explore Models
+                        </a>
+                        <a href="#features" class="border border-slate-800 hover:border-slate-700 hover:bg-slate-900/50 text-slate-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all text-center">
+                            Watch the Keynote <i class="fa-solid fa-play ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                    <!-- Small Trust Badges -->
+                    <div class="pt-6 border-t border-slate-900 flex flex-wrap justify-center lg:justify-start gap-6 text-xs text-slate-500">
+                        <span><i class="fa-solid fa-truck text-violet-400 mr-2"></i> Free Worldwide Shipping</span>
+                        <span><i class="fa-solid fa-shield-halved text-violet-400 mr-2"></i> 2-Year AuraCare+ Warranty</span>
+                    </div>
+                </div>
+
+                <!-- Hero Image Showcase -->
+                <div class="lg:col-span-6 flex justify-center relative">
+                    <!-- Decorative Ring background -->
+                    <div class="absolute w-[80%] aspect-square border border-slate-800/40 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-[spin_120s_linear_infinite]"></div>
+                    <!-- Phone Render Frame -->
+                    <div class="relative w-72 sm:w-80 transition-all hover:scale-[1.02] duration-500">
+                        <!-- Glowing backdrop to make product pop -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-violet-500 rounded-[3rem] blur-2xl opacity-20 pointer-events-none"></div>
+                        <!-- Clean mockup placeholder using pure Tailwind or high quality SVG -->
+                        <div class="relative bg-slate-900 border-4 border-slate-800 p-2 rounded-[3rem] shadow-2xl overflow-hidden aspect-[9/19]">
+                            <!-- Dynamic screen wallpaper gradient -->
+                            <div class="w-full h-full rounded-[2.5rem] bg-gradient-to-b from-indigo-950 via-slate-950 to-purple-950 relative overflow-hidden p-6 flex flex-col justify-between">
+                                <!-- Top Camera Pill -->
+                                <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full flex items-center justify-end px-3">
+                                    <div class="w-2.5 h-2.5 bg-slate-900 rounded-full border border-slate-800"></div>
+                                </div>
+                                <!-- UI Elements Mock -->
+                                <div class="mt-4 flex justify-between items-center text-[10px] text-slate-400 font-semibold tracking-wider">
+                                    <span>AURA OS</span>
+                                    <div class="flex space-x-1.5">
+                                        <i class="fa-solid fa-signal"></i>
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                <!-- Abstract artwork inside the phone -->
+                                <div class="my-auto text-center space-y-4">
+                                    <div class="w-28 h-28 mx-auto bg-gradient-to-tr from-indigo-500 to-cyan-400 rounded-full blur-sm opacity-40 animate-pulse"></div>
+                                    <h3 class="text-xl font-bold tracking-tight text-white leading-tight">Quantum-9 Engine</h3>
+                                    <p class="text-[11px] text-slate-400 max-w-[180px] mx-auto">Experiencing 120 FPS seamless adaptive reality.</p>
+                                </div>
+                                <!-- Bottom Pill Bar -->
+                                <div class="w-20 h-1 bg-white/40 mx-auto rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-20 border-y border-slate-900 bg-slate-950/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Engineered to Perfection</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The specifications of tomorrow, today</h2>
+                <p class="text-slate-400">We didn't just update the specs. We fundamentally re-engineered how a mobile device interacts with the human workflow.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-slate-900/40 border border-slate-900 p-8 rounded-2xl space-y-4 hover:border-violet-500/20 transition-all hover:translate-y-[-4px] group">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:bg-violet-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-microchip text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Quantum-9 AI Chip</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Built on a sub-2nm node, our processor executes over 80 trillion operations per second without breaking a sweat or wasting battery life.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-slate-900/40 border border-slate-900 p-8 rounded-2xl space-y-4 hover:border-indigo-500/20 transition-all hover:translate-y-[-4px] group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-camera text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">200MP Trinity Optic</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Three synchronized lenses utilizing physical liquid optics to continuously shift focus and capture light levels previously impossible in a phone.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-slate-900/40 border border-slate-900 p-8 rounded-2xl space-y-4 hover:border-cyan-500/20 transition-all hover:translate-y-[-4px] group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-bolt text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Infinite-Air Charging</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">True wireless power transmission. Charges up to 15 feet away from an authorized home hub safely and continuously without cables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase (Products grid) -->
+    <section id="products" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-violet-400 font-mono">Choose Your Power</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The Lineup</h2>
+                <p class="text-slate-400">Available in standard, pro, and ultra models designed for casual creators to elite engineers.</p>
+            </div>
+
+            <!-- Product Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-900/30 border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-slate-800 transition-all">
+                    <div class="p-8">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10"></div>
+                            <!-- Mock Minimal Smartphone Vector inside container -->
+                            <div class="w-24 h-44 bg-slate-950 border border-slate-800 rounded-2xl relative shadow-lg">
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-2 bg-slate-900 rounded-full"></div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-slate-800 rounded-full"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Aura 3</h3>
+                        <p class="text-slate-400 text-sm mt-2">The essential modern smartphone. Compact form, unlimited capability.</p>
+                        <!-- Spec Tags -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] bg-slate-800/80 text-slate-300 px-2 py-1 rounded">6.1" Display</span>
+                            <span class="text-[11px] bg-slate-800/80 text-slate-300 px-2 py-1 rounded">128GB Base</span>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-900/50 mt-auto flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">Starting at</span>
+                            <span class="text-xl font-extrabold text-white">$799</span>
+                        </div>
+                        <button class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
+                            Configure
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Featured / Pro) -->
+                <div class="bg-gradient-to-b from-indigo-950/20 to-slate-900/30 border-2 border-indigo-500/30 rounded-2xl overflow-hidden flex flex-col justify-between relative group hover:border-indigo-500/50 transition-all shadow-xl shadow-indigo-500/5">
+                    <div class="absolute top-4 right-4 bg-indigo-600 text-[10px] font-bold uppercase tracking-widest text-white px-3 py-1 rounded-full">
+                        Popular
+                    </div>
+                    <div class="p-8">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-violet-500/10 to-indigo-500/10"></div>
+                            <div class="w-28 h-48 bg-slate-950 border-2 border-indigo-500/30 rounded-3xl relative shadow-lg">
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-2 bg-slate-900 rounded-full"></div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-slate-800 rounded-full"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Aura 3 Pro</h3>
+                        <p class="text-slate-400 text-sm mt-2">Enhanced performance, physical variable iris camera lenses, and Quantum core upgrades.</p>
+                        <!-- Spec Tags -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] bg-indigo-500/10 text-indigo-400 px-2 py-1 rounded">6.7" ProMotion</span>
+                            <span class="text-[11px] bg-indigo-500/10 text-indigo-400 px-2 py-1 rounded">256GB Base</span>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-900/50 mt-auto flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">Starting at</span>
+                            <span class="text-xl font-extrabold text-white">$999</span>
+                        </div>
+                        <button class="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all shadow-md shadow-indigo-500/10">
+                            Configure
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-900/30 border border-slate-900 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-slate-800 transition-all">
+                    <div class="p-8">
+                        <div class="aspect-square bg-slate-900 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-pink-500/10"></div>
+                            <div class="w-28 h-48 bg-slate-950 border border-slate-800 rounded-3xl relative shadow-lg">
+                                <div class="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-slate-900 rounded-full"></div>
+                                <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-slate-800 rounded-full"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Aura 3 Ultra</h3>
+                        <p class="text-slate-400 text-sm mt-2">No-compromises powerhouse. Upgraded physical chassis constructed with space-grade alloy.</p>
+                        <!-- Spec Tags -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] bg-slate-800/80 text-slate-300 px-2 py-1 rounded">6.9" 2000nits</span>
+                            <span class="text-[11px] bg-slate-800/80 text-slate-300 px-2 py-1 rounded">512GB Base</span>
+                        </div>
+                    </div>
+                    <div class="p-8 pt-0 border-t border-slate-900/50 mt-auto flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">Starting at</span>
+                            <span class="text-xl font-extrabold text-white">$1,199</span>
+                        </div>
+                        <button class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
+                            Configure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Tech Specs (With clean interactive Tab system using Alpine.js) -->
+    <section id="specs" class="py-20 border-t border-slate-900 bg-slate-950" x-data="{ activeTab: 'display' }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Full Product Specifications</h2>
+                <p class="text-slate-400 text-sm">Select a category below to explore the technical breakdowns.</p>
+            </div>
+
+            <!-- Tabs Controls -->
+            <div class="flex border-b border-slate-900 justify-center space-x-4 mb-8">
+                <button @click="activeTab = 'display'" :class="activeTab === 'display' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-400 hover:text-white'" class="pb-3 text-sm font-semibold transition-all px-4">Display</button>
+                <button @click="activeTab = 'camera'" :class="activeTab === 'camera' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-400 hover:text-white'" class="pb-3 text-sm font-semibold transition-all px-4">Camera</button>
+                <button @click="activeTab = 'power'" :class="activeTab === 'power' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-400 hover:text-white'" class="pb-3 text-sm font-semibold transition-all px-4">Power & Battery</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="bg-slate-900/20 border border-slate-900 rounded-2xl p-6 sm:p-8">
+                <!-- Display Spec -->
+                <div x-show="activeTab === 'display'" class="space-y-6">
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Screen Technology</span>
+                        <span class="text-white text-right">Luminous Fluid OLED</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Adaptive Refresh</span>
+                        <span class="text-white text-right">1Hz to 180Hz variable ProMotion</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Peak Brightness</span>
+                        <span class="text-white text-right">3,200 nits under sunlight</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-medium text-slate-400">Color Profiles</span>
+                        <span class="text-white text-right">100% DCI-P3 Cinema Standard</span>
+                    </div>
+                </div>
+
+                <!-- Camera Spec -->
+                <div x-show="activeTab === 'camera'" class="space-y-6" style="display: none;">
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Main Sensor</span>
+                        <span class="text-white text-right">200 Megapixels, f/1.2 variable aperture</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Zoom Module</span>
+                        <span class="text-white text-right">10x Physical optical, 100x digital zoom</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Video Capture</span>
+                        <span class="text-white text-right">8K Cinema Raw at up to 60fps</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-medium text-slate-400">Stabilization</span>
+                        <span class="text-white text-right">Sensor-shift OIS Generation 4</span>
+                    </div>
+                </div>
+
+                <!-- Power Spec -->
+                <div x-show="activeTab === 'power'" class="space-y-6" style="display: none;">
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Battery Capacity</span>
+                        <span class="text-white text-right">5800mAh High-Density Graphene</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Infinite Air Charge</span>
+                        <span class="text-white text-right">Supported up to 15 Watts over air</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-900/50 pb-4">
+                        <span class="font-medium text-slate-400">Wired Power</span>
+                        <span class="text-white text-right">120W Rapid Charging (80% in 12 mins)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-medium text-slate-400">Eco-Score</span>
+                        <span class="text-white text-right">100% Recyclable components</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Newsletter -->
+    <section class="py-20 bg-gradient-to-t from-slate-950 to-indigo-950/20 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Join the Aura Evolution</h2>
+            <p class="text-slate-400 max-w-lg mx-auto">Subscribe to get launch updates, release events, and exclusive access to early configurator access codes.</p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Enter your email address" class="bg-slate-900 border border-slate-800 text-slate-100 rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-violet-500 w-full text-sm">
+                <button type="submit" class="bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm px-6 py-3.5 rounded-xl transition-all whitespace-nowrap">
+                    Notify Me
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <span class="text-lg font-bold text-white">AURA</span>
+                <span>&copy; 2026 Aura Technologies Inc.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Terms of Use</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Support Portal</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
