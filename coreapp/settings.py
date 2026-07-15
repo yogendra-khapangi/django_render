@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['django-render-9hon.onrender.com','*']
 
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://django-render-8tow.onrender.com']
 
 
 
