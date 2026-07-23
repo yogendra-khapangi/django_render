@@ -4,6 +4,37 @@ HTML
 <head>
     <meta charset="UTF-8">
     <title>{{ page_title }}</title>
+    <style>
+        /* Center the button on the screen */
+     
+
+        /* Button Styling */
+        .custom-btn {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Hover Effect */
+        .custom-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Active Click Effect */
+        .custom-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
 
@@ -22,6 +53,12 @@ HTML
             <li>No students found in the database.</li>
         {% endfor %}
     </ul>
-
+<!-- The Button -->
+    <button class="custom-btn">
+        <a href="{% url 'products' %}" >
+         Click Me
+        </a>
+       
+    </button>
 </body>
 </html>
